@@ -688,7 +688,7 @@ namespace Dependencies
 			// always the first call to make
 			Phlib.InitializePhLib();
 
-			int recursion_depth = 0;
+			int recursion_depth = 3;
 			bool early_exit = false;
 			bool show_help = false;
 			bool export_as_json = false;
