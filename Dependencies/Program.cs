@@ -744,6 +744,8 @@ namespace Dependencies
                 return;
             }
 
+            BinaryCache.Instance = new BinaryNoCacheImpl();
+            BinaryCache.Instance.Load();
             command(Pe, GetObjectPrinter(export_as_json), recursion_depth);
 
         }
