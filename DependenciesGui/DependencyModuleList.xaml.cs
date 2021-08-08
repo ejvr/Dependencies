@@ -28,6 +28,18 @@ namespace Dependencies
         }
 
         // mandatory since ModuleCacheKey is used as a dictionnary key
+        public override bool Equals(Object obj)
+        {
+            var rhs = obj as ModuleCacheKey;
+            if (rhs == null)
+                return false;
+            return
+                Equals(Name, rhs.Name) &&
+                Equals(Filepath, rhs.Filepath) &&
+                Equals(Flags, rhs.Flags);
+        }
+
+        // mandatory since ModuleCacheKey is used as a dictionnary key
         public override int GetHashCode()
         {
             int hashcode = Name.GetHashCode() ^ Flags.GetHashCode();
