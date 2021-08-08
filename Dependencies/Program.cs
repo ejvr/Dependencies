@@ -30,7 +30,7 @@ namespace Dependencies
 
         public void PrettyPrint()
         {
-            Console.WriteLine("[-] 64-bit KnownDlls : ");
+            Console.WriteLine("[-] 64-bit KnownDlls :");
 
             foreach (String KnownDll in this.x64)
             {
@@ -38,9 +38,9 @@ namespace Dependencies
                 Console.WriteLine("  {0:s}\\{1:s}", System32Folder, KnownDll);
             }
 
-            Console.WriteLine("");
+            Console.WriteLine();
 
-            Console.WriteLine("[-] 32-bit KnownDlls : ");
+            Console.WriteLine("[-] 32-bit KnownDlls :");
 
             foreach (String KnownDll in this.x86)
             {
@@ -49,7 +49,7 @@ namespace Dependencies
             }
 
 
-            Console.WriteLine("");
+            Console.WriteLine();
         }
 
         public List<String> x64;
@@ -73,7 +73,7 @@ namespace Dependencies
 
         public void PrettyPrint()
         {
-            Console.WriteLine("[-] Api Sets Map : ");
+            Console.WriteLine("[-] Api Sets Map :");
 
             foreach (var ApiSetEntry in this.Schema.GetAll())
             {
@@ -84,7 +84,7 @@ namespace Dependencies
                 Console.WriteLine("{0:s} -> [ {1:s} ]", ApiSetName, ApiSetImplStr);
             }
 
-            Console.WriteLine("");
+            Console.WriteLine();
         }
 
         public ApiSetSchema Schema;
@@ -172,7 +172,7 @@ namespace Dependencies
                 {
                     if (Import.ImportByOrdinal)
                     {
-                        Console.Write("\t Ordinal_{0:d} ", Import.Ordinal);
+                        Console.Write("\t Ordinal_{0:d}", Import.Ordinal);
                     }
                     else
                     {
@@ -181,7 +181,7 @@ namespace Dependencies
                     if (Import.DelayImport)
                         Console.WriteLine(" (Delay Import)");
                     else
-                        Console.WriteLine("");
+                        Console.WriteLine();
                 }
             }
 
@@ -379,7 +379,7 @@ namespace Dependencies
         public void PrettyPrint()
         {
             string Tabs = string.Concat(Enumerable.Repeat("|  ", RecursionLevel));
-            Console.WriteLine("{0:s}├ {1:s} ({2:s}) : {3:s} ", Tabs, ModuleName, SearchStrategy.ToString(), Filepath);
+            Console.WriteLine("{0:s}├ {1:s} ({2:s}) : {3:s}", Tabs, ModuleName, SearchStrategy.ToString(), Filepath);
 
             foreach (var Dep in ResolvedImports)
             {
@@ -407,7 +407,7 @@ namespace Dependencies
             }
 
             string Tabs = string.Concat(Enumerable.Repeat("|  ", localRecursionLevel));
-			Console.WriteLine("{0:s}├ {1:s} ({2:s}) : {3:s} ", Tabs, ModuleName, SearchStrategy.ToString(), Filepath);
+			Console.WriteLine("{0:s}├ {1:s} ({2:s}) : {3:s}", Tabs, ModuleName, SearchStrategy.ToString(), Filepath);
 		}
 
         private void SafeExecutor(Action action)
@@ -477,7 +477,7 @@ namespace Dependencies
         {
             foreach (var item in this.Values.OrderBy(module => module.SearchStrategy))
             {
-                Console.WriteLine("[{0:s}] {1:s} : {2:s} ", item.SearchStrategy.ToString(), item.ModuleName, item.Filepath);
+                Console.WriteLine("[{0:s}] {1:s} : {2:s}", item.SearchStrategy.ToString(), item.ModuleName, item.Filepath);
             }
             
         }
