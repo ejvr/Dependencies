@@ -191,6 +191,7 @@ namespace Dependencies
             }
 
 
+            RecentsItems.Clear();
             foreach (var RecentFilePath in Properties.Settings.Default.RecentFiles)
             {
                 // Ignore empty dummy entries
