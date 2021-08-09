@@ -20,39 +20,30 @@
 
     <local:DependencyCustomListView.Resources>
         <ContextMenu x:Key="ItemContextMenu">
-            <MenuItem Header = "Copy"
-                                Command="local:DependencyImportList.CopyValuesCommand"
-                                InputGestureText="Ctrl+C"  
-                                IsEnabled="True"/>
-            <MenuItem HeaderStringFormat= "Copy {0:s}"
-                                Header = "{Binding DataContext.Name, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}}"
-                                Command="{Binding Path=DataContext.CopyValue, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid},AncestorLevel=1 }}"
-                                CommandParameter ="{Binding DataContext.Name, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid }}"
-                                InputGestureText="Ctrl+Maj+C"  
-                                IsEnabled="True"/>
-            <MenuItem Header="Select All" 
-                                Command="ApplicationCommands.SelectAll" 
-                                IsEnabled="True"/>
-            <Separator Height="3" Margin="-1,0,0,0"/>
-            <MenuItem Header="_Undecorate C++ Functions" 
-                                Height="26" InputGestureText="F10" 
-                                IsCheckable="True" IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=Undecorate, Mode=TwoWay }"/>
-            <Separator Height="3" Margin="-1,0,0,0"/>
+            <MenuItem Header="Copy" Command="local:DependencyImportList.CopyValuesCommand" InputGestureText="Ctrl+C"/>
+            <MenuItem HeaderStringFormat="Copy {0:s}"
+                      Header="{Binding DataContext.Name, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}}"
+                      Command="{Binding Path=DataContext.CopyValue, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid},AncestorLevel=1 }}"
+                      CommandParameter="{Binding DataContext.Name, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid }}"
+                      InputGestureText="Ctrl+Maj+C"/>
+            <MenuItem Header="Select All" Command="ApplicationCommands.SelectAll"/>
+            <Separator/>
+            <MenuItem Header="_Undecorate C++ Functions" InputGestureText="F10" 
+                      IsCheckable="True" IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=Undecorate, Mode=TwoWay }"/>
+            <Separator/>
             <MenuItem Header="Lookup Import function on MSDN"  
-                            Command="{Binding Path=DataContext.QueryImportApi, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid},AncestorLevel=1 }}"
-                            CommandParameter ="{Binding DataContext , RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}}"
-                            InputGestureText="Alt+Enter"  
-                            IsEnabled="True" />
+                      Command="{Binding Path=DataContext.QueryImportApi, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid},AncestorLevel=1 }}"
+                      CommandParameter ="{Binding DataContext , RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}}"
+                      InputGestureText="Alt+Enter"/>
         </ContextMenu>
     </local:DependencyCustomListView.Resources>
-
 
     <local:DependencyCustomListView.View>
         <GridView AllowsColumnReorder="true">
             <GridViewColumn Header="PI" Width="40" util:GridViewSort.PropertyName="Type" HeaderContainerStyle="{StaticResource LeftAlignHeader}">
                 <GridViewColumn.CellTemplate>
                     <DataTemplate>
-                        <Image Width="30" Height="14" Source="{Binding IconUri}"/>
+                        <Image Width="30" Source="{Binding IconUri}"/>
                     </DataTemplate>
                 </GridViewColumn.CellTemplate>
             </GridViewColumn>
