@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Collections.Generic;
 
 using Dependencies.ClrPh;
+using Dependencies;
 using NDesk.Options;
 
 namespace Dependencies
@@ -39,9 +40,9 @@ namespace Dependencies
 
                 if (is_verbose)
                 {
-                    // Redirect debug log to the console
-                    Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
-                    Debug.AutoFlush = true;
+                    // Redirect debug log to the console???
+                    Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
+                    Trace.AutoFlush = true;
                 }
 
                 // always the first call to make
